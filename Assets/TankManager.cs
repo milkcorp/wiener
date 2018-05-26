@@ -14,12 +14,11 @@ public class TankManager : MonoBehaviour {
 
         authSample.TankDna dna = await auth.CreateTank();
 
-        Debug.Log(dna.wheelLeft + " " + dna.cannonSpeed);
         tank.wheelsizeL = dna.wheelLeft;
         tank.wheelsizeR = dna.wheelRight;
         tank.wheelVelocity = dna.cannonSpeed;
         tank.balletSize = dna.bulletSize;
-        tank.balletVelocity = dna.speed;
+        tank.balletVelocity = dna.speed * 50;
         tank.balletInterval = dna.interval;
         tank.baseColor = dna.baseColor;
         tank.wheelColoer = dna.wheelColor;

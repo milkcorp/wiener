@@ -86,13 +86,14 @@ public class Tank : MonoBehaviour {
         b.transform.localScale *= balletSize;
         b.GetComponent<Rigidbody>().AddForce(transform.forward * balletVelocity);
         b.GetComponent<Ballet>().tank = this;
+        b.GetComponent<MeshRenderer>().material.color = baseColor;
     }
 
 
     void OnCollisionEnter(Collision collision)
     {
         Ballet b = collision.gameObject.GetComponent<Ballet>();
-        if(b != null) {
+        if(b != null && b.tank != this) {
             b.tank.OnKill();
             Dead();
         }
