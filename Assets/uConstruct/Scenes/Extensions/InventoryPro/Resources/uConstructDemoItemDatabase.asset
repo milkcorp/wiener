@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee9c35122abd23458ddb18edd496d6a, type: 3}
+  m_Name: uConstructDemoItemDatabase
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11404572, guid: e305303554b6db5418b8cebc4d0a584e, type: 2}
+  - {fileID: 11489080, guid: 6f84622d1b3d2d747af44485e237ed0c, type: 2}
+  - {fileID: 11457044, guid: 441dcd5278b75ba4f8078c28a4cfbc9b, type: 2}
+  - {fileID: 11468614, guid: c0f19a0a54967a14286cbbf59539ab3b, type: 2}
+  - {fileID: 11485764, guid: 423ada82152357240af333e35897ecba, type: 2}
+  - {fileID: 11416664, guid: 01462b336ba2d03459e1f4b870388498, type: 2}
+  - {fileID: 11425260, guid: 6290d8d8d9dbef345b52ef0f6525375f, type: 2}
+  - {fileID: 11437938, guid: ba1c6130a7a4e2341b879c00b261056d, type: 2}
+  itemRarities:
+  - ID: 0
+    name: Normal
+    color:
+      r: 1
+      g: 1
+      b: 1
+      a: 1
+    dropObject: {fileID: 0}
+  itemCategories:
+  - ID: 0
+    name: None
+    icon: {fileID: 0}
+    cooldownTime: 0
+  properties: []
+  equipStats: []
+  equipStatTypes: []
+  equipTypes:
+  - ID: 0
+    name: Building
+    blockTypes: 
+  craftingCategories: []
+  currencies:
+  - ID: 0
+    singleName: Gold
+    pluralName: Gold
+    description: 
+    icon: {fileID: 0}
+    stringFormat: '{0} {3}'
+    currencyConversions: []
+    allowFractions: 1
+    autoConvertOnMax: 0
+    autoConvertOnMaxAmount: 1000
+    autoConvertOnMaxCurrencyID: 0
+    autoConvertFractions: 1
+    autoConvertFractionsToCurrencyID: 0
+  - ID: 1
+    singleName: Silver
+    pluralName: Silver
+    description: 
+    icon: {fileID: 0}
+    stringFormat: '{0} {3}'
+    currencyConversions: []
+    allowFractions: 1
+    autoConvertOnMax: 0
+    autoConvertOnMaxAmount: 1000
+    autoConvertOnMaxCurrencyID: 0
+    autoConvertFractions: 1
+    autoConvertFractionsToCurrencyID: 0
+  - ID: 2
+    singleName: Bronze
+    pluralName: Bronze
+    description: 
+    icon: {fileID: 0}
+    stringFormat: '{0} {3}'
+    currencyConversions: []
+    allowFractions: 1
+    autoConvertOnMax: 0
+    autoConvertOnMaxAmount: 1000
+    autoConvertOnMaxCurrencyID: 0
+    autoConvertFractions: 1
+    autoConvertFractionsToCurrencyID: 0
