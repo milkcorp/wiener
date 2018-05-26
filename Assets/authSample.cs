@@ -207,4 +207,48 @@ public class authSample : MonoBehaviour
 
         this.statusTextRef.text = "Smart contract returned: " + result.ToString();
     }
+
+    public int tankCount;
+
+    public class TankDna
+    {
+        public float wheelLeft { get; set; }
+        public float wheelRight { get; set; }
+        public float cannonSpeed { get; set; }
+        public float bulletSize { get; set; }
+        public float speed { get; set; }
+        public float interval { get; set; }
+        public Color baseColor { get; set; }
+        public Color wheelColor { get; set; }
+    }
+
+    public async Task<TankDna> CreateTank()
+    {
+        var tank = new TankDna
+        {
+            wheelLeft = UnityEngine.Random.Range(0.5f, 1.5f),
+            wheelRight = UnityEngine.Random.Range(0.5f, 1.5f),
+            cannonSpeed = UnityEngine.Random.Range(1000.0f, 3000.0f),
+            bulletSize = UnityEngine.Random.Range(0.5f, 2.0f),
+            speed = UnityEngine.Random.Range(0.5f, 5.0f),
+            interval = UnityEngine.Random.Range(1.0f, 10.0f),
+            baseColor = new Color(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value, 1.0f),
+            wheelColor = new Color(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value, 1.0f),
+        };
+
+        string tankJson = JsonUtility.ToJson(tank);
+
+        await this.contract.CallAsync("SetMsg", new MapEntry
+        {
+            Key = Convert.ToString(tankCount),
+            Value = tankJson
+                
+        });
+
+        this.tankCount++;
+
+        Debug.Log(tankJson);
+        return tank;
+
+    }
 }
