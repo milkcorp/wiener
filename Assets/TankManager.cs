@@ -9,10 +9,12 @@ public class TankManager : MonoBehaviour {
 
     public async void CreateTank(){
         GameObject tankObj = Instantiate<GameObject>(tankPrefab, Vector3.zero, Quaternion.identity);
+        tankObj.SetActive(false);
         Tank tank = tankObj.GetComponent<Tank>();
+
         authSample.TankDna dna = await auth.CreateTank();
 
-        Debug.Log(dna.wheelLeft);
+        Debug.Log(dna.wheelLeft + " " + dna.cannonSpeed);
         tank.wheelsizeL = dna.wheelLeft;
         tank.wheelsizeR = dna.wheelRight;
         tank.wheelVelocity = dna.cannonSpeed;
@@ -21,6 +23,9 @@ public class TankManager : MonoBehaviour {
         tank.balletInterval = dna.interval;
         tank.baseColor = dna.baseColor;
         tank.wheelColoer = dna.wheelColor;
+
+        tank.SetStatus();
+        tankObj.SetActive(true);
     }
 
 	// Use this for initialization

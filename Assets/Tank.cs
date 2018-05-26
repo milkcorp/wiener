@@ -12,6 +12,8 @@ public class Tank : MonoBehaviour {
     public Transform wheelLeft;
     public Transform wheelRight;
 
+    public GameObject deadParticle;
+
     public Vector3 wheelVelocityVec;
 
     //from DNA
@@ -34,7 +36,7 @@ public class Tank : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	public void SetStatus () {
 
         //DNA設定
         wheelLeft.transform.localScale = new Vector3(
@@ -43,11 +45,15 @@ public class Tank : MonoBehaviour {
             wheelLeft.transform.localScale.z * wheelsizeL
         );
 
+        //wheelLeft.GetComponent<CapsuleCollider>().radius *= wheelsizeL;
+
         wheelLeft.transform.localScale = new Vector3(
             wheelRight.transform.localScale.x,
             wheelRight.transform.localScale.y * wheelsizeR,
             wheelRight.transform.localScale.z * wheelsizeR
         );
+
+        //wheelRight.GetComponent<CapsuleCollider>().radius *= wheelsizeR;
 
         wheelVelocityVec = -transform.forward * wheelVelocity;
 
@@ -93,6 +99,7 @@ public class Tank : MonoBehaviour {
     }
 
     public void Dead() {
+        Instantiate(deadParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
